@@ -1,4 +1,6 @@
 class Dose < ApplicationRecord
+  attr_accessor :amount
+
   belongs_to :cocktail
   belongs_to :ingredient
   validates :description, presence: true

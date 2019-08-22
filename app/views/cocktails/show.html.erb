@@ -1,0 +1,28 @@
+<h1>"<%= @cocktail.name %>"</h1>
+<% if @cocktail.ingredients.empty? %>
+  <p>"Why not add some ingredients to your cocktail recipe?"</p>
+<% else %>
+  <div class="ingredients-list">
+    <h3>Ingredients List</h3>
+    <ul>
+      <% @cocktail.ingredients.each do |ingredient| %>
+      <li><%= ingredient.name %></li>
+      <% end %>
+    </ul>
+  </div>
+
+  <div class="recipes-list">
+    <h3>Here's how you make this cocktail...</h3>
+    <ol>
+      <% @cocktail.doses.each do |dose| %>
+        <li><%= dose.description %></li> <%= link_to 'delete', cocktail_dose_path(dose),
+            method: :delete,
+            data: { confirm: "Are you sure?" } %>
+      <% end %>
+    </ol>
+    <p>And that's all you need to do.</p>
+  </div>
+<% end %>
+
+<%= link_to 'Back', cocktails_path, class: "btn btn-info" %>
+<%= link_to 'Add Ingredients', new_cocktail_dose_path(@cocktail), class: "btn btn-primary" %>

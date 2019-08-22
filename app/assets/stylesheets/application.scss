@@ -11,3 +11,11 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+.cocktails-list, .ingredients-list, .recipes-list {
+  margin: 20px 0px;
+}
+
+.cocktails-list li {
+  font-size: 18px;
+}
