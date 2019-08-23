@@ -15,8 +15,11 @@ class CocktailsController < ApplicationController
   def create
     cocktail_name = params[:cocktail][:name]
     @cocktail = Cocktail.new(name: cocktail_name)
-    @cocktail.save!
-    redirect_to cocktail_path(@cocktail)
+    if @cocktail.save
+      redirect_to cocktail_path(@cocktail)
+    else
+      render 'new'
+    end
   end
 
   def set_cocktails
