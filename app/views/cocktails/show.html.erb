@@ -15,8 +15,8 @@
     <h3>Here's how you make this cocktail...</h3>
     <ol>
       <% @cocktail.doses.each do |dose| %>
-        <li><%= dose.description %></li> <%= link_to 'delete', cocktail_dose_path(@cocktail, dose),
-            method: :delete %>
+        <li><%= dose.description %></li>
+        <%= link_to 'delete', cocktail_dose_path(@cocktail, dose), method: :delete %>
       <% end %>
     </ol>
     <p>And that's all you need to do.</p>
